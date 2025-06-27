@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nabia Smile Test 💖</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ffd6e0, #e0f7ff);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #d63384;
+      margin-bottom: 40px;
+      font-size: 1.8rem;
+      text-align: center;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .btn-container {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: bounceIn 1s ease;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      min-width: 100px;
+    }
+
+    #yes {
+      background-color: #28a745;
+      color: white;
+    }
+
+    #no {
+      background-color: #dc3545;
+      color: white;
+      position: relative;
+    }
+
+    .message {
+      margin-top: 30px;
+      font-size: 1.3rem;
+      color: #333;
+      text-align: center;
+      max-width: 600px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      60% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Nabia, kya tum cute ho? 🥺</h1>
+  <div class="btn-container" id="buttons">
+    <button id="yes">Yes 😇</button>
+    <button id="no">No 😢</button>
+  </div>
+  <div class="message" id="message"></div>
+
+  <audio id="sound">
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_5f740f7497.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const yesBtn = document.getElementById('yes');
+    const noBtn = document.getElementById('no');
+    const msg = document.getElementById('message');
+    const sound = document.getElementById('sound');
+
+    yesBtn.addEventListener('click', () => {
+      msg.innerHTML = "Ayee bhaee 😍 tum to sach me cute ho! Aur roz aur bhi zyada hoti ja rahi ho 💖<br>Ye 'No' waala option tumhare liye bana hi nahi tha! 🥰<br><br><strong>Note:</strong> Danish apko hamesha chahta hy aur apko khush dekhna chahta hy 💌";
+      noBtn.style.display = 'none';
+      sound.play();
+    });
+
+    noBtn.addEventListener('mouseenter', () => {
+      const randomX = Math.floor(Math.random() * (window.innerWidth - 120));
+      const randomY = Math.floor(Math.random() * (window.innerHeight - 60));
+      noBtn.style.position = 'absolute';
+      noBtn.style.left = `${randomX}px`;
+      noBtn.style.top = `${randomY}px`;
+    });
+  </script>
+</body>
+</html>
